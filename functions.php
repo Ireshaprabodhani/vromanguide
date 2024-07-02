@@ -1,0 +1,57 @@
+<?php
+/**
+ * base_theme functions and definitions
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package base_theme
+ */
+
+if ( ! defined( '_S_VERSION' ) ) {
+	// Replace the version number of the theme on each release.
+	define( '_S_VERSION', '1.0.0' );
+}
+
+
+/**
+ * Include Enqueue.
+ */
+require get_template_directory() . '/inc/enqueue.php'; //Enqueue scripts and styles.
+
+/**
+ * Include Widgets.
+ */
+require get_template_directory() . '/inc/widgets.php'; //Register widget area.
+
+/**
+ * Include Shortcode
+ */
+require get_template_directory() . '/inc/shortcode.php';
+
+/**
+ * Customizer additions.
+ */
+require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Load Jetpack compatibility file.
+ */
+if ( defined( 'JETPACK__VERSION' ) ) {
+	require get_template_directory() . '/inc/jetpack.php';
+}
+
+function add_default_value_to_image_field($field) {
+	acf_render_field_setting( $field, array(
+		'label'			=> 'Default Image',
+		'instructions'		=> 'Appears when creating a new post',
+		'type'			=> 'image',
+		'name'			=> 'default_value',
+	));
+}
+
+add_action('acf/render_field_settings/type=image', 'add_default_value_to_image_field');
+
+
+
+
+

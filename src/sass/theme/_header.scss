@@ -1,0 +1,29 @@
+.site-main {
+    .main-header {
+        width: 100%;
+        z-index: 1000;
+        position: absolute;
+        background-color: transparent;
+
+        .inner {
+            position: absolute;
+            width: 100%;
+            padding: 0px 0px;
+            background: transparent;
+            padding: 20px 0 20px;
+            -webkit-transition: background-color 2s ease;
+            -moz-transition: background-color 2s ease;
+            -o-transition: background-color 2s ease;
+            transition: background-color 2s ease;
+
+            &.affix {
+                z-index: 1000;
+                position: fixed;
+                min-height: 80px;
+                padding: 20px 0px 20px;
+                background: #fff !important;
+
+            }
+        }
+    }
+}
